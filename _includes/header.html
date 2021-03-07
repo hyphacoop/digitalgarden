@@ -1,0 +1,17 @@
+<header class="f-6 flex">
+  {%- assign default_paths = site.pages | map: "path" -%}
+  {%- assign page_paths = site.header_pages | default: default_paths -%}
+  {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+  <a class="no-underline-hover" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+  {%- if titles_size > 0 -%}
+    <nav>
+      {%- for path in page_paths -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+        , <a class="no-underline-hover" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
+</header>

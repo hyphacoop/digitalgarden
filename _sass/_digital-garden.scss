@@ -1,0 +1,8 @@
+.links-dark-green a {
+  color: $accent-color;
+}
+
+.no-underline-hover:hover,
+.no-underline-hover:focus {
+  text-decoration: none;
+}

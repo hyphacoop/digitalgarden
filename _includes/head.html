@@ -1,0 +1,10 @@
+{%- assign meta_description = page.excerpt | default: site.description -%}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} 🌱 {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  {%- feed_meta -%}
+</head>

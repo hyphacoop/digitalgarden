@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body class="dark-green garamond links-dark-green bg-washed-green">
+
+    {%- include header.html -%}
+
+    <main aria-label="Content">
+      {{ content }}
+    </main>
+
+    {%- include footer.html -%}
+  <script src="{{ "/assets/js/scripts.js" | relative_url }}" async></script>
+  </body>
+</html>
