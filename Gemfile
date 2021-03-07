@@ -30,3 +30,5 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 
 gem "html-proofer", "~> 3.18"
+
+gem "rake", "~> 13.0"
