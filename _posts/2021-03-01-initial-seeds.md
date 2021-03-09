@@ -1,9 +1,15 @@
-# Initial Seeds 
+---
+layout: post
+title:  "Initial Seeds"
+---
 
-Set of questions that guide our reveries?
-1. History of hypertext, rss+adjacent protocols and standards
-2. Act of publishing as "making something public" → publicness → hybrid public space
-3. Possibilities for *the infrastructural* (maintenance/repair) to draw from the past to rethink the present through co-operative approaches
+Set of areas that guide our reveries?
+
+1. The history of hypertext, rss+adjacent protocols and standards.
+2. The act of publishing as "making something public" → publicness → hybrid public space.
+3. The possibilities for *the infrastructural* (maintenance/repair) to draw from the past to rethink the present through co-operative approaches.
+
+<!--more-->
 
 ```
 Publish from RSS to arena?
@@ -15,7 +21,7 @@ _What if... we travel back in time and blow up BGP? Would Xanadu be realized? Wo
 
 Publishing → making things public 
 
-**>> COMMISSIONING BODIES <<** 
+**>> COMMISSIONING BODIES <<**   
 Economy as a form a expression
 
-Antagonizing the separation of frontend/backend division
+Antagonizing the separation of frontend/backend
