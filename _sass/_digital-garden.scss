@@ -6,3 +6,70 @@
 .no-underline-hover:focus {
   text-decoration: none;
 }
+
+// Notes Graph
+
+.links line {
+  stroke: $accent-color;
+  opacity: 0.5;
+}
+
+.nodes circle {
+  cursor: pointer;
+  fill: $accent-color;
+  transition: all 0.15s ease-out;
+}
+
+.text text {
+  cursor: pointer;
+  fill: $accent-color;
+}
+
+.nodes [active],
+.text [active] {
+  cursor: pointer;
+  fill: $accent-color;
+}
+
+.inactive {
+  opacity: 0.1;
+  transition: all 0.15s ease-out;
+}
+
+#graph-wrapper {
+  border-radius: 4px;
+  height: auto;
+}
+
+// Link previews
+
+content a.internal-link {
+  background-color: rgba($accent-color, 0.1);
+}
+
+#tooltip-wrapper {
+  background: white;
+  padding: 1em;
+  border: 1px solid $accent-color;
+  border-radius: 4px;
+  overflow: hidden;
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  font-size: 0.8em;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 100ms;
+}
+
+#tooltip-wrapper:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
+  width: 100%;
+  height: 75px;
+}

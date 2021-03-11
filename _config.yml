@@ -31,8 +31,30 @@ excerpt_separator: "<!--more-->"
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-last-modified-at
+
 sass:
   style: compressed
+
+collections:
+  notes:
+    output: true
+    permalink: /:slug
+
+defaults:
+  - scope:
+      path: "**/*"
+    values:
+      layout: "default"
+  - scope:
+      path: "_notes/**/*.md"
+    values:
+      layout: "note"
+
+
+permalink: pretty
+relative_permalinks: false
+use_html_extension: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -43,6 +65,7 @@ sass:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - _includes/notes_graph.json
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
