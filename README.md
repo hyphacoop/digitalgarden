@@ -1,6 +1,7 @@
 # digitalgarden
 
 [![HTMLProofer](https://github.com/hyphacoop/digitalgarden/actions/workflows/main.yml/badge.svg)](https://github.com/hyphacoop/digitalgarden/actions/workflows/main.yml)
+[![GitHub Pages Deploy](https://github.com/hyphacoop/digitalgarden/actions/workflows/deploy.yml/badge.svg)](https://github.com/hyphacoop/digitalgarden/actions/workflows/deploy.yml)
 
 A public notebook / digital garden for The Bentway’s Digital and/as Public Space Micro-Residency.
 
