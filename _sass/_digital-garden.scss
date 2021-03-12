@@ -16,7 +16,8 @@
 
 .nodes circle {
   cursor: pointer;
-  fill: $accent-color;
+  stroke: $accent-color;
+  fill: transparent;
   transition: all 0.15s ease-out;
 }
 
