@@ -74,7 +74,7 @@ function setupListeners (linkElement) {
   })
 }
 
-document.querySelectorAll('.note-contents a').forEach(setupListeners)
+document.querySelectorAll('#notes-entry-container a').forEach(setupListeners)
 
 // Notes graph
 
@@ -143,7 +143,7 @@ if (typeof graphData !== 'undefined') {
 
     link.attr('stroke-width', (linkD) => {
       if (linkD.source.id === d.id || linkD.target.id === d.id) {
-        return STROKE * 4
+        return STROKE * 2
       }
       return STROKE
     })
@@ -213,7 +213,6 @@ if (typeof graphData !== 'undefined') {
     const font = Math.max(Math.round(zoomOrKeep(FONT_SIZE)), 1)
 
     text.attr('font-size', (d) => font)
-    text.attr('y', (d) => d.y - zoomOrKeep(FONT_BASELINE) + 8)
     link.attr('stroke-width', zoomOrKeep(STROKE))
     node.attr('r', (d) => {
       return zoomOrKeep(nodeSize[d.id])

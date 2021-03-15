@@ -17,13 +17,12 @@
 
 .links line {
   stroke: $accent-color;
-  opacity: 0.5;
 }
 
 .nodes circle {
   cursor: pointer;
   stroke: $accent-color;
-  fill: transparent;
+  fill: #e8fdf5;
   transition: all 0.15s ease-out;
 }
 
@@ -38,14 +37,22 @@
   fill: $accent-color;
 }
 
-.inactive {
-  opacity: 0.1;
-  transition: all 0.15s ease-out;
+// Notes inline styles
+
+.internal-link {
+  padding: 0 0.1em;
+  text-decoration: none;
+  background: rgba($highlight-color, 0.35);
+  border: 1px solid rgba($highlight-color, 0.45);
+  border-radius: 3px;
 }
 
-#graph-wrapper {
-  border-radius: 4px;
-  height: auto;
+.invalid-link {
+  padding: 0 0.1em;
+  text-decoration: none;
+  background: rgba($highlight-color, 0.1);
+  border: 1px solid rgba($highlight-color, 0.25);
+  border-radius: 3px;
 }
 
 // Link previews
@@ -55,16 +62,12 @@ content a.internal-link {
 }
 
 #tooltip-wrapper {
-  background: white;
   padding: 1em;
-  border: 1px solid $accent-color;
-  border-radius: 4px;
   overflow: hidden;
   position: absolute;
   width: 400px;
-  height: 250px;
+  max-height: 250px;
   font-size: 0.8em;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   opacity: 0;
   transition: opacity 100ms;
 }
