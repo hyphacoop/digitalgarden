@@ -15,8 +15,9 @@
 
 // Notes Graph
 
-.links line {
+.links path {
   stroke: $accent-color;
+  fill: transparent;
 }
 
 .nodes circle {
@@ -35,6 +36,11 @@
 .text [active] {
   cursor: pointer;
   fill: $accent-color;
+}
+
+.inactive {
+  opacity: 0.25;
+  transition: opacity 0.15s ease-out;
 }
 
 // Notes inline styles
@@ -57,19 +63,8 @@
 
 // Link previews
 
-content a.internal-link {
-  background-color: rgba($accent-color, 0.1);
-}
-
 #tooltip-wrapper {
-  padding: 1em;
-  overflow: hidden;
-  position: absolute;
-  width: 400px;
   max-height: 250px;
-  font-size: 0.8em;
-  opacity: 0;
-  transition: opacity 100ms;
 }
 
 #tooltip-wrapper:after {

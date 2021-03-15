@@ -3,46 +3,42 @@ layout: default
 ---
 <div class="flex">
   <article class="w-50">
-    <div>
+    <header class="mb2">
       <h1>{{ page.title }}</h1>
-      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% if page.type != 'pages' %}
+      <time class="code dib f7 ph3 pv2 ba br-pill" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% if page.type != 'pages' %}
         Last updated on {{ page.last_modified_at | date: "%B %-d, %Y" }}
         {% endif %}
       </time>
-    </div>
+    </header>
 
     <div id="notes-entry-container">
       <div class="note-contents lh-copy">
         {{ content }}
       </div>
 
-      <side>
-        <h3>Notes mentioning this note</h3>
+      <aside class="bt b--dark-green">
+        <h3 class="mb3">Notes mentioning this note</h3>
         {% if page.backlinks.size > 0 %}
-        <div>
+        <div class="flex">
         {% for backlink in page.backlinks %}
-          <div class="backlink-box">
-          <a class="internal-link b" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a><br>
-          <div class="lh-copy">{{ backlink.excerpt | strip_html | truncatewords: 20 }}</div>
+          <div class="w-50 mr2 pa2 ba b--dark-green br3">
+            <h4 class="mt0 mb2"><a class="internal-link" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a></h4>
+            <div class="f7 lh-copy">{{ backlink.excerpt | strip_html | truncatewords: 20 | remove: '[[' | remove: ']]' }}</div>
           </div>
         {% endfor %}
         </div>
         {% else %}
-
         <div>
-          <p>
+          <p class="f7">
             There are no notes linking to this note.
           </p>
         </div>
         {% endif %}
-      </side>
+      </aside>
     </div>
   </article>
 
   <div class="w-50">
-
-  <p>Here are all the notes in this garden, along with their links, visualized as a graph.</p>
-
-  {% include notes_graph.html %}
+    {% include notes_graph.html %}
   </div>
 </div>
