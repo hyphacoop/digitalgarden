@@ -4,7 +4,6 @@ let opacityTimeout
 let contentTimeout
 const transitionDurationMs = 100
 
-const iframe = document.getElementById('link-preview-iframe')
 const tooltipWrapper = document.getElementById('tooltip-wrapper')
 const tooltipContent = document.getElementById('tooltip-content')
 
@@ -24,19 +23,22 @@ function showTooltip (event) {
   const top = window.pageYOffset || document.documentElement.scrollTop
 
   if (event.target.host === window.location.host) {
-    iframe.src = event.target.href
-    iframe.onload = function () {
-      let tooltipContentHtml = ''
-      tooltipContentHtml += '<div class="b">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
-      tooltipContentHtml += iframe.contentWindow.document.querySelector('.note-contents').innerHTML
+    window.fetch(event.target.href)
+      .then(response => response.text())
+      .then(data => {
+        const parser = new window.DOMParser()
+        const doc = parser.parseFromString(data, 'text/html')
+        let tooltipContentHtml = ''
+        tooltipContentHtml += '<div class="b">' + doc.querySelector('h1').innerHTML + '</div>'
+        tooltipContentHtml += doc.querySelector('.note-contents').innerHTML
 
-      tooltipContent.innerHTML = tooltipContentHtml
+        tooltipContent.innerHTML = tooltipContentHtml
 
-      tooltipWrapper.style.display = 'block'
-      setTimeout(function () {
-        tooltipWrapper.style.opacity = 1
-      }, 1)
-    }
+        tooltipWrapper.style.display = 'block'
+        setTimeout(function () {
+          tooltipWrapper.style.opacity = 1
+        }, 1)
+      })
 
     tooltipWrapper.style.left = elemProps.left - (tooltipWrapper.offsetWidth / 2) + (elemProps.width / 2) + 'px'
     if ((window.innerHeight - elemProps.top) < (tooltipWrapper.offsetHeight)) {
