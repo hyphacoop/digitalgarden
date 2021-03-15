@@ -29,12 +29,14 @@
     </main><footer>
 
 </footer><!-- That file is not particularly elegant. This will need a refactor at some point. -->
-<div style="opacity: 0; display: none;" id='tooltip-wrapper' class="bg-white lh-copy">
-  <div id='tooltip-content'>
+<div class="hide-child">
+  <div id='tooltip-wrapper' class="bg-white lh-copy dn o-0 pa2 w5 f6 overflow-hidden absolute child">
+    <div id='tooltip-content'>
+    </div>
   </div>
 </div>
 
-<iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
+<iframe class="dn" id="link-preview-iframe">
 </iframe>
 
     <script src="/assets/js/d3.v6.min.js" defer></script>

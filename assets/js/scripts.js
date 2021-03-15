@@ -85,7 +85,7 @@ if (typeof graphData !== 'undefined') {
   const MAX_NODE_SIZE = 12
   const ACTIVE_RADIUS_FACTOR = 1.5
   const STROKE = 1
-  const FONT_SIZE = 16
+  const FONT_SIZE = 12
   const TICKS = 200
   const FONT_BASELINE = 40
   const MAX_LABEL_LENGTH = 50
@@ -120,35 +120,35 @@ if (typeof graphData !== 'undefined') {
 
   const onMouseover = function (d) {
     const relatedNodesSet = new Set()
+    const destinationID = d3.select(d.target).data()[0].id
     linksData
-      .filter((n) => n.target.id === d.id || n.source.id === d.id)
+      .filter((n) => n.target.id === destinationID || n.source.id === destinationID)
       .forEach((n) => {
         relatedNodesSet.add(n.target.id)
         relatedNodesSet.add(n.source.id)
       })
-
     node.attr('class', (nodeD) => {
-      if (nodeD.id !== d.id && !relatedNodesSet.has(nodeD.id)) {
+      if (nodeD.id !== destinationID && !relatedNodesSet.has(nodeD.id)) {
         return 'inactive'
       }
       return ''
     })
 
     link.attr('class', (linkD) => {
-      if (linkD.source.id !== d.id && linkD.target.id !== d.id) {
+      if (linkD.source.id !== destinationID && linkD.target.id !== destinationID) {
         return 'inactive'
       }
       return ''
     })
 
     link.attr('stroke-width', (linkD) => {
-      if (linkD.source.id === d.id || linkD.target.id === d.id) {
+      if (linkD.source.id === destinationID || linkD.target.id === destinationID) {
         return STROKE * 2
       }
       return STROKE
     })
     text.attr('class', (textD) => {
-      if (textD.id !== d.id && !relatedNodesSet.has(textD.id)) {
+      if (textD.id !== destinationID && !relatedNodesSet.has(textD.id)) {
         return 'inactive'
       }
       return ''
@@ -166,6 +166,7 @@ if (typeof graphData !== 'undefined') {
   const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   element.setAttribute('width', graphWrapper.getBoundingClientRect().width)
   element.setAttribute('height', window.innerHeight * 0.8)
+  element.classList.add('absolute', 'vh-100')
   graphWrapper.appendChild(element)
 
   const reportWindowSize = () => {
@@ -190,7 +191,7 @@ if (typeof graphData !== 'undefined') {
       d3
         .forceLink(linksData)
         .id((d) => d.id)
-        .distance(70)
+        .distance(100)
     )
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(80))
@@ -231,10 +232,17 @@ if (typeof graphData !== 'undefined') {
       .attr('x', (d) => d.x)
       .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]) / zoomLevel)
     link
-      .attr('x1', (d) => d.source.x)
-      .attr('y1', (d) => d.source.y)
-      .attr('x2', (d) => d.target.x)
-      .attr('y2', (d) => d.target.y)
+      .attr('d', (d) => {
+        const dx = d.target.x - d.source.x
+        const dy = d.target.y - d.source.y
+        const dr = Math.sqrt(dx * dx + dy * dy)
+        return 'M' +
+            d.source.x + ',' +
+            d.source.y + 'A' +
+            dr + ',' + dr + ' 0 0,1 ' +
+            d.target.x + ',' +
+            d.target.y
+      })
   }
 
   const restart = () => {
@@ -254,7 +262,7 @@ if (typeof graphData !== 'undefined') {
 
     link = link.data(linksData, (d) => `${d.source.id}-${d.target.id}`)
     link.exit().remove()
-    link = link.enter().append('line').attr('stroke-width', STROKE).merge(link)
+    link = link.enter().append('path').attr('stroke-width', STROKE).merge(link)
 
     text = text.data(nodesData, (d) => d.label)
     text.exit().remove()
