@@ -82,7 +82,7 @@ document.querySelectorAll('#notes-entry-container a').forEach(setupListeners)
 
 const d3 = window.d3
 
-if (typeof graphData !== 'undefined') {
+if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
   const MAX_NODE_SIZE = 12
   const ACTIVE_RADIUS_FACTOR = 1.5
@@ -92,10 +92,8 @@ if (typeof graphData !== 'undefined') {
   const FONT_BASELINE = 40
   const MAX_LABEL_LENGTH = 50
 
-  /* global graphData */
-
-  const nodesData = graphData.nodes
-  const linksData = graphData.edges
+  const nodesData = window.graphData.nodes
+  const linksData = window.graphData.edges
 
   const nodeSize = {}
 
@@ -168,7 +166,7 @@ if (typeof graphData !== 'undefined') {
   const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   element.setAttribute('width', graphWrapper.getBoundingClientRect().width)
   element.setAttribute('height', window.innerHeight * 0.8)
-  element.classList.add('absolute', 'vh-100')
+  element.classList.add('absolute', 'vh-100', 'grab', 'grabbing')
   graphWrapper.appendChild(element)
 
   const reportWindowSize = () => {
