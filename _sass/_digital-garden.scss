@@ -13,6 +13,16 @@
   font-family: "Anthony", sans-serif;
 }
 
+// Extended cursors
+
+.grab:hover {
+  cursor: grab;
+}
+
+.grabbing:active {
+  cursor: grabbing;
+}
+
 // Notes Graph
 
 .links path {

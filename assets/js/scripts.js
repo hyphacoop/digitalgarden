@@ -166,7 +166,7 @@ if (typeof window.graphData !== 'undefined') {
   const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   element.setAttribute('width', graphWrapper.getBoundingClientRect().width)
   element.setAttribute('height', window.innerHeight * 0.8)
-  element.classList.add('absolute', 'vh-100')
+  element.classList.add('absolute', 'vh-100', 'grab', 'grabbing')
   graphWrapper.appendChild(element)
 
   const reportWindowSize = () => {
