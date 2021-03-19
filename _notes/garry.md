@@ -2,4 +2,4 @@
 title: Garry Ing
 ---
 
-TBD
+[Garry Ing](https://garrying.com) is a designer in Toronto.
