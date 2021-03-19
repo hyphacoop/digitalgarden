@@ -1,6 +1,5 @@
 ---
-layout: post
-title:  "Initial Seeds"
+date_created: 2021-03-01
 ---
 
 Set of areas that guide our reveries?

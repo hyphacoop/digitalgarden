@@ -3,24 +3,24 @@ layout: default
 ---
 
 <ul>
-{% for post in site.posts %}
+{% for note in site.notes %}
   <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
+    <a href="{{ note.url }}">{{ note.title }}</a>
   </li>
 {% endfor %}
 </ul>
 
 <section>
-{% for post in site.posts %}
+{% for note in site.notes %}
   <div class="post_excerpt">
     <article>
       <h2 itemprop="headline">
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ post.title }}</a>
+        <a href="{{ post.url | relative_url }}" rel="permalink">{{ note.title }}</a>
       </h2>
-      <p class="excerpt" itemprop="description"><em>{% if post.excerpt %}
-        {{ post.excerpt | markdownify | strip_html }}
+      <p class="excerpt" itemprop="description"><em>{% if note.excerpt %}
+        {{ note.excerpt | markdownify | strip_html }}
       {% else %}
-        {{ post.content | markdownify | strip_html | truncate: 160 }}     
+        {{ note.content | markdownify | strip_html | truncate: 160 }}     
       {% endif %}</em></p>
     </article>
   </div>
