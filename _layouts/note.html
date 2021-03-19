@@ -5,6 +5,11 @@ layout: default
   <article class="w-50">
     <header class="mb2">
       <h1>{{ page.title }}</h1>
+      <time class="code dib f7 ph3 pv2 ba br-pill" datetime="{{ page.date_created | date_to_xmlschema }}">{% if page.type != 'pages' %}
+        Created on {{ page.date_created | date: "%B %-d, %Y" }}
+        {% endif %}
+      </time>
+    </header>
       <time class="code dib f7 ph3 pv2 ba br-pill" datetime="{{ page.last_modified_at | date_to_xmlschema }}">{% if page.type != 'pages' %}
         Last updated on {{ page.last_modified_at | date: "%B %-d, %Y" }}
         {% endif %}
