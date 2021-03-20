@@ -41,6 +41,13 @@ collections:
     output: true
     permalink: /:slug
 
+feed:
+  collections:
+    notes:
+      path: "/feed.xml"
+    posts:
+      path: ""
+
 defaults:
   - scope:
       path: "**/*"
