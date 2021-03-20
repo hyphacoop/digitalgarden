@@ -42,6 +42,7 @@ collections:
     permalink: /:slug
 
 feed:
+  path: feed.xml
   collections:
     notes:
       path: "/feed.xml"
