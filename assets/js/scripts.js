@@ -1,3 +1,33 @@
+// Header interaction
+
+const headerEle = document.querySelector('#header')
+let headerElePosStore = 0
+
+const debounce = (fn) => {
+  let frame
+  return (...params) => {
+    if (frame) {
+      window.cancelAnimationFrame(frame)
+    }
+    frame = window.requestAnimationFrame(() => {
+      fn(...params)
+    })
+  }
+}
+
+const storeScroll = (event) => {
+  const bodyRect = document.body.getBoundingClientRect()
+  if (bodyRect.top < headerElePosStore &&
+    -headerEle.offsetHeight > bodyRect.top) {
+    headerEle.classList.add('header-inactive')
+  } else {
+    headerEle.classList.remove('header-inactive')
+  }
+  headerElePosStore = bodyRect.top
+}
+
+document.addEventListener('scroll', debounce(storeScroll), { passive: true })
+
 // Link preview
 
 let opacityTimeout
@@ -7,17 +37,17 @@ const transitionDurationMs = 100
 const tooltipWrapper = document.getElementById('tooltip-wrapper')
 const tooltipContent = document.getElementById('tooltip-content')
 
-function hideTooltip () {
-  opacityTimeout = setTimeout(function () {
+const hideTooltip = () => {
+  opacityTimeout = setTimeout(() => {
     tooltipWrapper.style.opacity = 0
-    contentTimeout = setTimeout(function () {
+    contentTimeout = setTimeout(() => {
       tooltipContent.innerHTML = ''
       tooltipWrapper.style.display = 'none'
     }, transitionDurationMs + 1)
   }, transitionDurationMs)
 }
 
-function showTooltip (event) {
+const showTooltip = (event) => {
   const elem = event.target
   const elemProps = elem.getClientRects()[elem.getClientRects().length - 1]
   const top = window.pageYOffset || document.documentElement.scrollTop
@@ -35,7 +65,7 @@ function showTooltip (event) {
         tooltipContent.innerHTML = tooltipContentHtml
 
         tooltipWrapper.style.display = 'block'
-        setTimeout(function () {
+        setTimeout(() => {
           tooltipWrapper.style.opacity = 1
         }, 1)
       })
@@ -55,22 +85,22 @@ function showTooltip (event) {
   }
 }
 
-function setupListeners (linkElement) {
-  linkElement.addEventListener('mouseleave', function (_event) {
+const setupListeners = (linkElement) => {
+  linkElement.addEventListener('mouseleave', _event => {
     hideTooltip()
   })
 
-  tooltipWrapper.addEventListener('mouseleave', function (_event) {
+  tooltipWrapper.addEventListener('mouseleave', _event => {
     hideTooltip()
   })
 
-  linkElement.addEventListener('mouseenter', function (event) {
+  linkElement.addEventListener('mouseenter', event => {
     clearTimeout(opacityTimeout)
     clearTimeout(contentTimeout)
     showTooltip(event)
   })
 
-  tooltipWrapper.addEventListener('mouseenter', function (event) {
+  tooltipWrapper.addEventListener('mouseenter', event => {
     clearTimeout(opacityTimeout)
     clearTimeout(contentTimeout)
   })
@@ -118,7 +148,7 @@ if (typeof window.graphData !== 'undefined') {
     window.location = d3.select(d.target).data()[0].path
   }
 
-  const onMouseover = function (d) {
+  const onMouseover = (d) => {
     const relatedNodesSet = new Set()
     const destinationID = d3.select(d.target).data()[0].id
     linksData
@@ -138,7 +168,7 @@ if (typeof window.graphData !== 'undefined') {
       if (linkD.source.id !== destinationID && linkD.target.id !== destinationID) {
         return 'inactive'
       }
-      return ''
+      return 'active'
     })
 
     link.attr('stroke-width', (linkD) => {
@@ -155,7 +185,7 @@ if (typeof window.graphData !== 'undefined') {
     })
   }
 
-  const onMouseout = function (d) {
+  const onMouseout = (d) => {
     node.attr('class', '')
     link.attr('class', '')
     text.attr('class', '')
@@ -165,8 +195,8 @@ if (typeof window.graphData !== 'undefined') {
   const graphWrapper = document.getElementById('graph-wrapper')
   const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   element.setAttribute('width', graphWrapper.getBoundingClientRect().width)
-  element.setAttribute('height', window.innerHeight * 0.8)
-  element.classList.add('absolute', 'vh-100', 'grab', 'grabbing')
+  element.setAttribute('height', window.innerHeight)
+  element.classList.add('grab', 'grabbing')
   graphWrapper.appendChild(element)
 
   const reportWindowSize = () => {
@@ -205,7 +235,7 @@ if (typeof window.graphData !== 'undefined') {
   const resize = (event) => {
     if (event) {
       const scale = event.transform
-      zoomLevel = scale.k
+      // zoomLevel = scale.k
       g.attr('transform', scale)
     }
 
@@ -222,8 +252,6 @@ if (typeof window.graphData !== 'undefined') {
       .selectAll('circle')
       .filter((_d, i, nodes) => d3.select(nodes[i]).attr('active'))
       .attr('r', (d) => zoomOrKeep(ACTIVE_RADIUS_FACTOR * nodeSize[d.id]))
-
-    document.getElementById('zoom').innerHTML = zoomLevel.toFixed(2)
   }
 
   const ticked = () => {
@@ -293,7 +321,7 @@ if (typeof window.graphData !== 'undefined') {
     ticked()
   }
 
-  const zoomHandler = d3.zoom().scaleExtent([0.2, 3]).on('zoom', resize)
+  const zoomHandler = d3.zoom().scaleExtent([1, 1]).on('zoom', resize)
 
   zoomHandler(svg)
   restart()
