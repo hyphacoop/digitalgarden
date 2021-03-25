@@ -1,9 +1,8 @@
-<div class="absolute bottom-1">
-  <p class="ma0 f7 measure-narrow lh-copy">Here are all the notes in this garden, along with their links, visualized as a graph.</p>
-</div>
-<div id="zoom" class="absolute code f7 bottom-1 right-1"></div>
-<div id="graph-wrapper" class="code f6">
+<div id="graph-wrapper" class="relative vh-100 code f6">
   <script>
     window.graphData = {% include notes_graph.json %}
   </script>
+  <div class="absolute bottom-1 left-1">
+    <p class="ma0 f7 measure-wide lh-copy">Here are all the notes in this garden, along with their links, visualized as a graph.</p>
+  </div>
 </div>

@@ -7,6 +7,22 @@
   text-decoration: none;
 }
 
+// Header
+
+#header {
+  transition: transform 100ms ease-in-out;
+}
+
+.header-inactive {
+  transform: translateY(-100%);
+}
+
+// Sticky helper
+
+.sticky {
+  position: sticky;
+}
+
 // Fonts helper
 
 .anthony {
@@ -28,6 +44,17 @@
 .links path {
   stroke: $accent-color;
   fill: transparent;
+
+  &.active {
+    stroke-dasharray: 10;
+    animation: dash 20s linear;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
 }
 
 .nodes circle {
@@ -45,11 +72,12 @@
 .nodes [active],
 .text [active] {
   cursor: pointer;
-  fill: $accent-color;
+  fill: #ff6300;
+  stroke: transparent;
 }
 
 .inactive {
-  opacity: 0.25;
+  opacity: 0.45;
   transition: opacity 0.15s ease-out;
 }
 
@@ -58,9 +86,9 @@
 .internal-link {
   padding: 0 0.1em;
   text-decoration: none;
-  background: rgba($highlight-color, 0.35);
+  background: rgba($highlight-color, 0.25);
   border: 1px solid rgba($highlight-color, 0.45);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .invalid-link {
@@ -68,7 +96,7 @@
   text-decoration: none;
   background: rgba($highlight-color, 0.1);
   border: 1px solid rgba($highlight-color, 0.25);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 // Link previews
