@@ -235,7 +235,7 @@ if (typeof window.graphData !== 'undefined') {
   const resize = (event) => {
     if (event) {
       const scale = event.transform
-      // zoomLevel = scale.k
+      zoomLevel = scale.k
       g.attr('transform', scale)
     }
 
