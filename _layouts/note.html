@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="flex">
   <article class="w-50 pa3 pr0">
-    <div class="container bg-white pa3 br4">
+    <div class="container bg-white sha pa3 br4">
       <header class="mb2 b--washed-green">
         <div class="note-meta flex justify-between">
           {% if page.date_created %}
@@ -17,7 +17,7 @@ layout: default
             {% endif %}
           </time>
         </div>
-        <h1 class="normal f-6 lh-solid">{{ page.title }}</h1>
+        <h1 class="normal work-sans-light f-6 lh-solid">{{ page.title }}</h1>
       </header>
 
       <div id="notes-entry-container">
@@ -25,13 +25,13 @@ layout: default
           {{ content }}
         </div>
 
-        <aside class="bt b--dark-green mt5">
-          <h3 class="normal f1 mv5">Notes mentioning this note</h3>
+        <aside class="bt b--moon-gray mt5">
+          <h3 class="normal f1 mv5 work-sans-light">Notes mentioning this note</h3>
           {% if page.backlinks.size > 0 %}
           <div class="flex">
           {% for backlink in page.backlinks %}
-            <div class="w-50 mr2 pa3 ba b--dark-green br4">
-              <h4 class="mt0 normal f3 mb2"><a class="internal-link" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a></h4>
+            <div class="w-50 mr2 pa3 ba b--moon-gray br4">
+              <h4 class="mt0  mb2"><a class="internal-link" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a></h4>
               <div class="f7 lh-copy">{{ backlink.excerpt | strip_html | truncatewords: 20 | remove: '[[' | remove: ']]' }}</div>
             </div>
           {% endfor %}

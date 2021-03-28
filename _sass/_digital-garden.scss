@@ -29,6 +29,24 @@
   font-family: "Anthony", sans-serif;
 }
 
+.violet-sans {
+  font-family: "Violet Sans", sans-serif;
+}
+
+.work-sans-light {
+  font-family: "Work Sans Light", sans-serif;
+}
+
+// Shadow helper
+
+.shadow-solid-accent { box-shadow: 2px 2px 10px rgba( #137752, 0.2 ); }
+
+// Width helper
+
+.w6 {
+  width: 20rem;
+}
+
 // Extended cursors
 
 .grab:hover {
@@ -46,8 +64,8 @@
   fill: transparent;
 
   &.active {
-    stroke-dasharray: 10;
-    animation: dash 20s linear;
+    stroke-dasharray: 5;
+    animation: dash 40s linear;
   }
 }
 
@@ -62,11 +80,19 @@
   stroke: $accent-color;
   fill: #e8fdf5;
   transition: all 0.15s ease-out;
+
+  &:hover {
+    fill: $accent-color;
+  }
 }
 
 .text text {
   cursor: pointer;
   fill: $accent-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .nodes [active],
@@ -101,18 +127,19 @@
 
 // Link previews
 
-#tooltip-wrapper {
+#tooltip-content {
   max-height: 250px;
 }
 
-#tooltip-wrapper:after {
+#tooltip-content:after {
   content: "";
+  display: block;
   position: absolute;
   z-index: 1;
-  bottom: 0;
-  left: 0;
+  bottom: .5rem;
+  right: 0;
   pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
-  width: 100%;
-  height: 75px;
+  background-image: linear-gradient(to right, rgba(#fff, 0), rgba(#fff, 1) 50%);
+  width: 150px;
+  height: 1rem;
 }

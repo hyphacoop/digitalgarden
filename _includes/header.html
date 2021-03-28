@@ -1,17 +1,19 @@
-<header id="header" class="f5 pa3 flex bb b--dark-green bg-washed-green justify-between sticky top-0 w-100 items-baseline">
+<header id="header" class="f5 pa3 flex bb b--dark-green bg-washed-green justify-between sticky top-0 w-100 items-baseline z-1">
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
   <a class="no-underline f4 dark-green anthony" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
   {%- if titles_size > 0 -%}
-    <nav>
+    <nav class="f7">
       {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
-          <a class="f7 no-underline dark-green" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+          <a class="no-underline dark-green underline-hover" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
         {%- endif -%}
       {%- endfor -%}
+      <a class="no-underline dark-green ml3 underline-hover" href="{{ "/feed.xml" | relative_url }}">RSS Feed</a>
+      <a class="no-underline dark-green ml3 underline-hover" href="https://github.com/hyphacoop/digitalgarden">View Garden Source</a>
     </nav>
   {%- endif -%}
 </header>

@@ -36,6 +36,7 @@ const transitionDurationMs = 100
 
 const tooltipWrapper = document.getElementById('tooltip-wrapper')
 const tooltipContent = document.getElementById('tooltip-content')
+const tooltipSource = document.getElementById('tooltip-source')
 
 const hideTooltip = () => {
   opacityTimeout = setTimeout(() => {
@@ -63,6 +64,9 @@ const showTooltip = (event) => {
         tooltipContentHtml += doc.querySelector('.note-contents').innerHTML
 
         tooltipContent.innerHTML = tooltipContentHtml
+
+        const pathIndex = event.target.href.split('/')
+        tooltipSource.innerHTML = `/${pathIndex[pathIndex.length - 1]}`
 
         tooltipWrapper.style.display = 'block'
         setTimeout(() => {
@@ -173,7 +177,7 @@ if (typeof window.graphData !== 'undefined') {
 
     link.attr('stroke-width', (linkD) => {
       if (linkD.source.id === destinationID || linkD.target.id === destinationID) {
-        return STROKE * 2
+        return STROKE * 1
       }
       return STROKE
     })
