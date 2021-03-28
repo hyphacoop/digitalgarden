@@ -4,7 +4,7 @@ date_created: 2021-03-01
 
 Set of areas that guide our reveries?
 
-1. The history of [[hypertext-transfer-protocol|hypertext]], [[rss]]+adjacent protocols and standards.
+1. The history of [[hypertext transfer protocol|hypertext]], [[rss]]+adjacent protocols and standards.
 2. The act of [[publishing]] as "making something public" → publicness → hybrid [[public space]].
 3. The possibilities for *the infrastructural* (maintenance/repair) to draw from the past to rethink the present through co-operative approaches.
 
