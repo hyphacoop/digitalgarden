@@ -118,11 +118,12 @@
 }
 
 .invalid-link {
-  padding: 0 0.1em;
+  padding: 0 0.1em 0.2em 0.1em;
   text-decoration: none;
   background: rgba($highlight-color, 0.1);
-  border: 1px solid rgba($highlight-color, 0.25);
+  border: 1px solid rgba($highlight-color, 0.5);
   border-radius: 4px;
+  color: $highlight-color;
 }
 
 .note-contents {
@@ -138,6 +139,12 @@
 
   ul {
     list-style: circle;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 }
 
