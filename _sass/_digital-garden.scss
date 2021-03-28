@@ -125,6 +125,22 @@
   border-radius: 4px;
 }
 
+.note-contents {
+  blockquote {
+    margin: 0 0 0 0.5em;
+    padding: 0.05em 0.5em;
+    border-left: 2px solid rgba($accent-color, 0.5);
+  }
+
+  ul, ol {
+    padding-left: 1.75em;
+  }
+
+  ul {
+    list-style: circle;
+  }
+}
+
 // Link previews
 
 #tooltip-content {
