@@ -112,6 +112,14 @@ const setupListeners = (linkElement) => {
 
 document.querySelectorAll('#notes-entry-container a').forEach(setupListeners)
 
+// Random note index
+
+if (typeof window.graphDataIndex !== 'undefined') {
+  const indexNodes = window.graphDataIndex.nodes
+  const randomNode = indexNodes[Math.floor(Math.random() * indexNodes.length)]
+  window.location = randomNode.path
+}
+
 // Notes graph
 
 const d3 = window.d3

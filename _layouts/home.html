@@ -2,27 +2,8 @@
 layout: default
 ---
 
-<ul>
-{% for note in site.notes %}
-  <li>
-    <a href="{{ note.url }}">{{ note.title }}</a>
-  </li>
-{% endfor %}
-</ul>
+<h1 class="f-6 work-sans-light normal">Loading a note...</h1>
 
-<section>
-{% for note in site.notes %}
-  <div class="post_excerpt">
-    <article>
-      <h2 itemprop="headline">
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ note.title }}</a>
-      </h2>
-      <p class="excerpt" itemprop="description"><em>{% if note.excerpt %}
-        {{ note.excerpt | markdownify | strip_html }}
-      {% else %}
-        {{ note.content | markdownify | strip_html | truncate: 160 }}     
-      {% endif %}</em></p>
-    </article>
-  </div>
-{% endfor %}
-</section>
+<script>
+  window.graphDataIndex = {% include notes_graph.json %}
+</script>
