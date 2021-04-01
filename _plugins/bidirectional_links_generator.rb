@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Generate bi-directional links from a given collection and the nodes graph.
 class BidirectionalLinksGenerator < Jekyll::Generator
   def generate(site)
     graph_nodes = []
@@ -9,7 +11,7 @@ class BidirectionalLinksGenerator < Jekyll::Generator
 
     all_docs = all_notes + all_pages
 
-    link_extension = !!site.config["use_html_extension"] ? '.html' : ''
+    link_extension = site.config['use_html_extension'] ? '.html' : ''
 
     # Convert all Wiki/Roam-style double-bracket link syntax to plain HTML
     # anchor tag elements (<a>) with "internal-link" CSS class
@@ -74,11 +76,13 @@ class BidirectionalLinksGenerator < Jekyll::Generator
       end
 
       # Nodes: Graph
-      graph_nodes << {
-        id: note_id_from_note(current_note),
-        path: "#{site.baseurl}#{current_note.url}#{link_extension}",
-        label: current_note.data['title'],
-      } unless current_note.path.include?('_notes/index.html')
+      unless current_note.path.include?('_notes/index.html')
+        graph_nodes << {
+          id: note_id_from_note(current_note),
+          path: "#{site.baseurl}#{current_note.url}#{link_extension}",
+          label: current_note.data['title']
+        }
+      end
 
       # Edges: Jekyll
       current_note.data['backlinks'] = notes_linking_to_current_note
@@ -87,23 +91,23 @@ class BidirectionalLinksGenerator < Jekyll::Generator
       notes_linking_to_current_note.each do |n|
         graph_edges << {
           source: note_id_from_note(n),
-          target: note_id_from_note(current_note),
+          target: note_id_from_note(current_note)
         }
       end
     end
 
     File.write('_includes/notes_graph.json', JSON.dump({
-      edges: graph_edges,
-      nodes: graph_nodes,
-    }))
+                                                         edges: graph_edges,
+                                                         nodes: graph_nodes
+                                                       }))
   end
 
   def note_id_from_note(note)
     note.data['title']
-      .dup
-      .gsub(/\W+/, ' ')
-      .delete(' ')
-      .to_i(36)
-      .to_s
+        .dup
+        .gsub(/\W+/, ' ')
+        .delete(' ')
+        .to_i(36)
+        .to_s
   end
 end
