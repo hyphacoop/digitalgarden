@@ -1,11 +1,16 @@
 ---
 layout: default
 ---
-<article class="measure-wide">
+<article class="measure-wide ml3">
   <header>
     <h1 class="f-6 normal anthony">{{ page.title | escape }}</h1>
   </header>
-  <div class="lh-copy f5">
+  <div class="lh-copy f5 z-1 mb6 relative">
     {{ content }}
   </div>
+  {% if page.url == "/colophon/" %}
+    <div class="fixed top-0 right-0 w-100 vh-100 o-20">
+      {% include notes_graph.html %}
+    </div>
+  {% endif %}
 </article>
