@@ -5,7 +5,7 @@
   <a class="no-underline f4 dark-green anthony" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
   {%- if titles_size > 0 -%}
-    <nav class="f7">
+    <nav class="f7 code">
       {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
