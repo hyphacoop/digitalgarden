@@ -117,7 +117,29 @@ document.querySelectorAll('#notes-entry-container a').forEach(setupListeners)
 if (typeof window.graphDataIndex !== 'undefined') {
   const indexNodes = window.graphDataIndex.nodes
   const randomNode = indexNodes[Math.floor(Math.random() * indexNodes.length)]
-  window.location = randomNode.path
+  let counter = 0
+
+  setInterval(() => {
+    counter += 1
+    document.querySelector('.loading').innerHTML += '.'
+    if (counter === 4) {
+      document.querySelector('.loading').innerHTML = 'Loading a note'
+      counter = 0
+    }
+  }, 500)
+
+  setInterval(() => {
+    const randomNodeLoader = indexNodes[Math.floor(Math.random() * indexNodes.length)]
+    const randomNodeTemplate = `<p class="ma0">${randomNodeLoader.path}</p>`
+    document.querySelector('.rand-notes').innerHTML += randomNodeTemplate
+    if (counter === 3) {
+      document.querySelector('.rand-notes').innerHTML = ''
+    }
+  }, 250)
+
+  setTimeout(() => {
+    window.location = randomNode.path
+  }, 1500)
 }
 
 // Notes graph
@@ -127,11 +149,10 @@ const d3 = window.d3
 if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
   const MAX_NODE_SIZE = 12
-  const ACTIVE_RADIUS_FACTOR = 1.5
   const STROKE = 1
   const FONT_SIZE = 12
   const TICKS = 200
-  const FONT_BASELINE = 40
+  const FONT_BASELINE = 35
   const MAX_LABEL_LENGTH = 50
 
   const nodesData = window.graphData.nodes
@@ -221,7 +242,6 @@ if (typeof window.graphData !== 'undefined') {
   const svg = d3.select('svg')
   const width = Number(svg.attr('width'))
   const height = Number(svg.attr('height'))
-  let zoomLevel = 1
 
   const simulation = d3
     .forceSimulation(nodesData)
@@ -247,30 +267,21 @@ if (typeof window.graphData !== 'undefined') {
   const resize = (event) => {
     if (event) {
       const scale = event.transform
-      zoomLevel = scale.k
-      g.attr('transform', scale)
+      if (!activeNode.empty()) {
+        const newX = parseFloat(activeNode.attr('cx')) - scale.x
+        const newY = parseFloat(activeNode.attr('cy')) - scale.y
+        g.attr('transform', 'translate(' + (width / 2 - newX) + ',' + (height / 2 - newY) + ')')
+      } else {
+        g.attr('transform', scale)
+      }
     }
-
-    const zoomOrKeep = (value) => (zoomLevel >= 1 ? value / zoomLevel : value)
-
-    const font = Math.max(Math.round(zoomOrKeep(FONT_SIZE)), 1)
-
-    text.attr('font-size', (d) => font)
-    link.attr('stroke-width', zoomOrKeep(STROKE))
-    node.attr('r', (d) => {
-      return zoomOrKeep(nodeSize[d.id])
-    })
-    svg
-      .selectAll('circle')
-      .filter((_d, i, nodes) => d3.select(nodes[i]).attr('active'))
-      .attr('r', (d) => zoomOrKeep(ACTIVE_RADIUS_FACTOR * nodeSize[d.id]))
   }
 
   const ticked = () => {
     node.attr('cx', (d) => d.x).attr('cy', (d) => d.y)
     text
       .attr('x', (d) => d.x)
-      .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]) / zoomLevel)
+      .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]))
     link
       .attr('d', (d) => {
         const dx = d.target.x - d.source.x
@@ -338,8 +349,18 @@ if (typeof window.graphData !== 'undefined') {
   zoomHandler(svg)
   restart()
 
+  const activeNode = svg.select('circle[active]')
+
+  if (!activeNode.empty()) {
+    const centerNode = (xx, yy) => {
+      g.attr('transform', 'translate(' + (width / 2 - xx) + ',' + (height / 2 - yy) + ')')
+    }
+
+    centerNode(activeNode.attr('cx'), activeNode.attr('cy'))
+  }
+
   function isCurrentPath (notePath) {
-    return window.location.pathname.includes(notePath)
+    return window.location.pathname === notePath
   }
 
   function shorten (str, maxLen, separator = ' ') {
