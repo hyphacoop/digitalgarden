@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="flex">
-  <article class="w-50 pa3 pr0">
+  <article id="note-container"  class="w-50 pa3 pr0 relative z-1">
     <div class="container bg-white min-vh-100-header-comp pa3 br4 flex flex-column justify-between">
       <header>
         <div class="note-meta flex justify-between">
@@ -49,6 +49,7 @@ layout: default
         {% endif %}
       </aside>
     </div>
+    <button id="note-expand" class="absolute top-1 pointer nr4 right-0 bg-washed-green button-reset bn dark-green o-50">→</button>
   </article>
 
   <div class="fixed top-0 right-0 w-50 vh-100">

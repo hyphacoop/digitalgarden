@@ -368,3 +368,14 @@ if (typeof window.graphData !== 'undefined') {
     return str.substr(0, str.lastIndexOf(separator, maxLen)) + '...'
   }
 }
+
+// Note expander
+
+const noteExpander = document.querySelector('#note-expand')
+
+if (noteExpander) {
+  noteExpander.addEventListener('click', (event) => {
+    document.querySelector('#note-container').classList.toggle('w-two-thirds')
+    event.target.classList.toggle('rotate-180')
+  })
+}
