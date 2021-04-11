@@ -10,15 +10,14 @@ Set of areas that guide our reveries?
 
 <!--more-->
 
-```
-Publish from RSS to arena?
-RSS to twitter? The gram? 
-Use DPress to get it on SSB?
-```
 
-_What if... we travel back in time and blow up BGP? Would Xanadu be realized? Would actual plural internetworking have persisted?_
+- Publish from RSS to arena?
+- RSS to twitter? The gram? 
+- Use DPress to get it on [[SSB]]?
 
-Publishing → making things public 
+_What if... we travel back in time and blow up [[BGP]]? Would Xanadu be realized? Would actual plural internetworking have persisted?_
+
+[[Publishing]] → making things public 
 
 **>> COMMISSIONING BODIES <<**   
 Economy as a form a expression
