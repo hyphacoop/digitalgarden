@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+front_matter_date = DateTime.now.strftime('%Y-%m-%d')
+
 EMPTY_FRONT_MATTER = <<~JEKYLL
   ---
+  date: #{front_matter_date}
   ---
 
 JEKYLL
