@@ -1,7 +1,7 @@
 ---
 ---
 
-<https://www.w3.org/Proposal.html>
+https://www.w3.org/Proposal.html
 
 # WorldWideWeb: Proposal for a HyperText Project
 From:
