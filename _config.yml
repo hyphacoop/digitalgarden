@@ -49,6 +49,9 @@ feed:
     posts:
       path: ""
 
+author:
+  twitter: HyphaCoop
+
 defaults:
   - scope:
       path: "**/*"
