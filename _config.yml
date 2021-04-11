@@ -23,7 +23,8 @@ email: hello@hypha.coop
 description: >- # this means to ignore newlines until "baseurl:"
   A digital garden or public notebook for The Bentway’s Digital and/as Public Space Micro-Residency.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://digitalgarden.hypha.coop" # the base hostname & protocol for your site, e.g. http://example.com
+author: Hypha Worker Co-operative
 
 # Layout
 excerpt_separator: "<!--more-->"
@@ -48,9 +49,6 @@ feed:
       path: "/feed.xml"
     posts:
       path: ""
-
-author:
-  twitter: HyphaCoop
 
 defaults:
   - scope:
