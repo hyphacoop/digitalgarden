@@ -372,10 +372,20 @@ if (typeof window.graphData !== 'undefined') {
 // Note expander
 
 const noteExpander = document.querySelector('#note-expand')
+const noteContainer = document.querySelector('#note-container')
 
 if (noteExpander) {
+  if (window.localStorage.getItem('noteExpanded') === 'true') {
+    noteExpander.classList.add('rotate-180')
+    noteContainer.classList.add('w-two-thirds')
+  }
   noteExpander.addEventListener('click', (event) => {
-    document.querySelector('#note-container').classList.toggle('w-two-thirds')
+    noteContainer.classList.toggle('w-two-thirds')
     event.target.classList.toggle('rotate-180')
+    if (window.localStorage.getItem('noteExpanded') === 'true') {
+      window.localStorage.setItem('noteExpanded', 'false')
+    } else {
+      window.localStorage.setItem('noteExpanded', 'true')
+    }
   })
 }
