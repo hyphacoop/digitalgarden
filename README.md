@@ -9,7 +9,7 @@ A public notebook / digital garden for The Bentway’s [Digital and/as Public Sp
 
 ## Adding and connecting notes
 - [Notes](./_notes) in the Digital Garden are stored in the `./_notes` folder as markdown files (`*.md`) files.
-- Connecting notes is done through a double-bracket notation: `[[text to link]]`. View the [The Statement of Intent](./notes/statement-of-intent.md) note as an example.
+- Connecting notes is done through a double-bracket notation: `[[text to link]]`. View the [The Statement of Intent](./_notes/statement-of-intent.md) note as an example.
 - A link without a corresponding markdown file will be highlighted and left unlinked until a file is created.
 
 ## Technologies used
