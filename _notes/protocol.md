@@ -11,4 +11,4 @@ date_created: 2021-03-28
 
 > Protocols are the "attitudes" or "the manner in which one approaches each and every element in our space." They are different than pure rules or instructions; they are ways that we establish order and maintain practices across our group [...] -- They define the way we ought to proceed or behave in different situations. As such, they are normative, or premised on values, morals, and an idea of how things ought to be done. They are a manifestation of our values.
 
-<https://civiclaboratory.nl/clear-lab-book/>
+<https://civiclaboratory.nl/clear-lab-book/>{:data-proofer-ignore='true'}
