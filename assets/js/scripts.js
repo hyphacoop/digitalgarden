@@ -122,7 +122,7 @@ if (typeof window.graphDataIndex !== 'undefined') {
   setInterval(() => {
     counter += 1
     document.querySelector('.loading').innerHTML += '.'
-    if (counter === 4) {
+    if (counter === 5) {
       document.querySelector('.loading').innerHTML = 'Loading a note'
       counter = 0
     }
@@ -130,12 +130,12 @@ if (typeof window.graphDataIndex !== 'undefined') {
 
   setInterval(() => {
     const randomNodeLoader = indexNodes[Math.floor(Math.random() * indexNodes.length)]
-    const randomNodeTemplate = `<p class="ma0">${randomNodeLoader.path}</p>`
+    const randomNodeTemplate = randomNodeLoader.path
     document.querySelector('.rand-notes').innerHTML += randomNodeTemplate
-    if (counter === 3) {
+    if (counter === 4) {
       document.querySelector('.rand-notes').innerHTML = ''
     }
-  }, 250)
+  }, 150)
 
   setTimeout(() => {
     window.location = randomNode.path
