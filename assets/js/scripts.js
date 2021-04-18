@@ -122,7 +122,7 @@ if (typeof window.graphDataIndex !== 'undefined') {
   setInterval(() => {
     counter += 1
     document.querySelector('.loading').innerHTML += '.'
-    if (counter === 4) {
+    if (counter === 5) {
       document.querySelector('.loading').innerHTML = 'Loading a note'
       counter = 0
     }
@@ -130,12 +130,12 @@ if (typeof window.graphDataIndex !== 'undefined') {
 
   setInterval(() => {
     const randomNodeLoader = indexNodes[Math.floor(Math.random() * indexNodes.length)]
-    const randomNodeTemplate = `<p class="ma0">${randomNodeLoader.path}</p>`
+    const randomNodeTemplate = randomNodeLoader.path
     document.querySelector('.rand-notes').innerHTML += randomNodeTemplate
-    if (counter === 3) {
+    if (counter === 4) {
       document.querySelector('.rand-notes').innerHTML = ''
     }
-  }, 250)
+  }, 150)
 
   setTimeout(() => {
     window.location = randomNode.path
@@ -256,7 +256,7 @@ if (typeof window.graphData !== 'undefined') {
         .distance(100)
     )
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(80))
+    .force('collision', d3.forceCollide().radius(90))
     .stop()
 
   const g = svg.append('g')
