@@ -239,7 +239,7 @@ if (typeof window.graphData !== 'undefined') {
 
   window.onresize = reportWindowSize
 
-  const svg = d3.select('svg')
+  const svg = d3.select('#graph-wrapper svg')
   const width = Number(svg.attr('width'))
   const height = Number(svg.attr('height'))
 

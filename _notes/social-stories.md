@@ -12,3 +12,7 @@ We are exploring the protocols, languages, and material of the internet as a pla
 - <https://pmvabf.org/>: Printed Matter’s Virtual Art Book Fair. We think their shift to virtual this year was really neat to experience. They had a lot of support from folks and created an experience that feels unique and "of-the-net" instead of directly replicating the in-person event. We were also are thinking about <https://www.anarchistbookfair.ca/tablers-2020/>
 - <http://designforthe.net/workshops/ascii/>: A workshop Mindy Seu hosted as part of A-B-Z-TXT. Pulling together concrete poetry and typewriter art, to create imaginary internet dwellings
 - <http://contemporary-home-computing.org/turing-complete-user/>: Essay from Olia Lialina expanding on the concept of _General Purpose Users_
+- <https://www.foreignobjects.net/internet-as-a-city>
+- Community Memory
+- World in 24 Hours
+- <https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/>
