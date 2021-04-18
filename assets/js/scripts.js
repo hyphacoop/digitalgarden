@@ -389,3 +389,17 @@ if (noteExpander) {
     }
   })
 }
+
+// Weather
+
+const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
+const conditionsContainer = document.getElementById('gardenConditions')
+const openWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Toronto&units=metric&appid=afe544d6e6f442f817b2f43eafdca885'
+
+if (conditionsContainer) {
+  window.fetch(openWeatherUrl)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('gardenConditions').innerHTML = `${capitalize(data.weather[0].description)}, ${Math.round(data.main.temp)}°C`
+    })
+}
