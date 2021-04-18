@@ -2,10 +2,17 @@
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
-  <a class="no-underline f4 foreground-text anthony" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+
+  <div class="flex items-baseline">
+    <a class="no-underline f4 foreground-text anthony mr3" rel="author" href="{{ "/" | relative_url }}">✿ {{ site.title | escape }}</a>
+    {% if page.url != "/" %}
+      <div id="gardenConditions" class="br-pill code f7 ba pv2 ph3"></div>
+    {% endif %}
+  </div>
+
 
   {%- if titles_size > 0 -%}
-    <nav class="f7 code">
+    <nav class="f7 code flex">
       {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
