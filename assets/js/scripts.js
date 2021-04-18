@@ -256,7 +256,7 @@ if (typeof window.graphData !== 'undefined') {
         .distance(100)
     )
     .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(80))
+    .force('collision', d3.forceCollide().radius(90))
     .stop()
 
   const g = svg.append('g')
