@@ -2,6 +2,10 @@
   color: var(--foreground-text);
 }
 
+.links-foreground-text a:hover {
+  text-decoration: none;
+}
+
 .no-underline-hover:hover,
 .no-underline-hover:focus {
   text-decoration: none;
@@ -150,10 +154,6 @@
 
   ul, ol {
     padding-left: 1.75em;
-  }
-
-  ul {
-    list-style: circle;
   }
 
   img {
