@@ -161,6 +161,18 @@
     height: auto;
     display: block;
   }
+
+  hr {
+    border-width: 0;
+    border-top: 1px solid var(--foreground-text);
+  }
+
+  pre {
+    padding: 1rem;
+    background-color: rgba(var(--internal-link-rgb), 0.2);
+    border-radius: 6px;
+    font-size: .875rem;
+  }
 }
 
 // Link previews

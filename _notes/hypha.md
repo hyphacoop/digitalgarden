@@ -2,7 +2,8 @@
 title: Hypha
 ---
 
-<https://hypha.coop>
+<https://hypha.coop>  
+<https://twitter.com/HyphaCoop>
 
 We cultivate collective growth and meaningful livelihoods through learning and building technologies together.
 
