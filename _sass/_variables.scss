@@ -1,2 +1,27 @@
-$highlight-color: #F5A486;
-$accent-color: #137752;
+:root {
+  --active-note: #9e00ff;
+  --foreground-text: #F06E2F;
+  --foreground-text-rgb: 240, 110, 47;
+  --internal-link-rgb: 245, 164, 134;
+  --background: #eaf1ca;
+}
+
+.bg-foreground-text {
+  background-color:var(--foreground-text);
+}
+
+.b--foreground-text {
+  border-color:var(--foreground-text);
+}
+
+.foreground-text {
+  color:var(--foreground-text);
+}
+
+.bg-background {
+  background-color:var(--background);
+}
+
+.b--background {
+  border-color:var(--background);
+}

@@ -1,5 +1,5 @@
-.links-dark-green a {
-  color: $accent-color;
+.links-foreground-text a {
+  color: var(--foreground-text);
 }
 
 .no-underline-hover:hover,
@@ -39,7 +39,7 @@
 
 // Shadow helper
 
-.shadow-solid-accent { box-shadow: 2px 2px 10px rgba( #137752, 0.2 ); }
+.shadow-solid-accent { box-shadow: 2px 2px 10px rgba( var(--foreground-text-rgb), 0.2 ); }
 
 // Width helper
 
@@ -66,7 +66,7 @@
 // Notes Graph
 
 .links path {
-  stroke: $accent-color;
+  stroke: var(--foreground-text);
   fill: transparent;
 
   &.active {
@@ -83,18 +83,18 @@
 
 .nodes circle {
   cursor: pointer;
-  stroke: $accent-color;
-  fill: #e8fdf5;
+  stroke: var(--foreground-text);
+  fill: var(--background);
   transition: all 0.15s ease-out;
 
   &:hover {
-    fill: $accent-color;
+    fill: var(--foreground-text);
   }
 }
 
 .text text {
   cursor: pointer;
-  fill: $accent-color;
+  fill: var(--foreground-text);
 
   &:hover {
     text-decoration: underline;
@@ -104,7 +104,7 @@
 .nodes [active],
 .text [active] {
   cursor: pointer;
-  fill: #ff6300;
+  fill: var(--active-note);
   stroke: transparent;
 }
 
@@ -115,28 +115,37 @@
 
 // Notes inline styles
 
+.note-meta:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: var(--active-note);
+}
+
 .internal-link {
-  padding: 0 0.1em;
+  padding: 0 0.3em;
   text-decoration: none;
-  background: rgba($highlight-color, 0.25);
-  border: 1px solid rgba($highlight-color, 0.45);
+  background: rgba(var(--internal-link-rgb), 0.25);
   border-radius: 4px;
+  text-decoration: underline;
+  white-space: nowrap;
 }
 
 .invalid-link {
   padding: 0 0.1em 0.2em 0.1em;
   text-decoration: none;
-  background: rgba($highlight-color, 0.1);
-  border: 1px solid rgba($highlight-color, 0.5);
+  background: rgba(var(--internal-link-rgb), 0.1);
+  border: 1px solid rgba(var(--internal-link-rgb), 0.5);
   border-radius: 4px;
-  color: $highlight-color;
+  color: var(--internal-link-rgb);
 }
 
 .note-contents {
   blockquote {
-    margin: 0 0 0 0.5em;
-    padding: 0 0.5em;
-    border-left: 2px solid rgba($accent-color, 0.5);
+    margin: 0 0 0 0.75em;
+    padding: 0 0.75em;
+    border-left: 2px solid var(--foreground-text);
   }
 
   ul, ol {
