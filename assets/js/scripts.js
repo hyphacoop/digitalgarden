@@ -262,6 +262,7 @@ if (typeof window.graphData !== 'undefined') {
   const g = svg.append('g')
   let link = g.append('g').attr('class', 'links').selectAll('.link')
   let node = g.append('g').attr('class', 'nodes').selectAll('.node')
+  let status = g.append('g').attr('class', 'status').selectAll('.status')
   let text = g.append('g').attr('class', 'text').selectAll('.text')
 
   const resize = (event) => {
@@ -279,6 +280,7 @@ if (typeof window.graphData !== 'undefined') {
 
   const ticked = () => {
     node.attr('cx', (d) => d.x).attr('cy', (d) => d.y)
+    status.attr('x', (d) => d.x - 24).attr('y', (d) => d.y)
     text
       .attr('x', (d) => d.x)
       .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]))
@@ -298,11 +300,17 @@ if (typeof window.graphData !== 'undefined') {
 
   const restart = () => {
     updateNodeSize()
-    node = node.data(nodesData, (d) => d.id)
-    node.exit().remove()
-    node = node
-      .enter()
-      .append('circle')
+
+    status = status.data(nodesData, (d) => d.id).enter().append('text')
+    status
+      .text((d) => d.status)
+      .attr('font-size', '18px')
+      .attr('text-anchor', 'middle')
+      .attr('alignment-baseline', 'central')
+      .merge(status)
+
+    node = node.data(nodesData, (d) => d.id).enter().append('circle')
+    node
       .attr('r', (d) => {
         return nodeSize[d.id]
       })
@@ -311,15 +319,15 @@ if (typeof window.graphData !== 'undefined') {
       .on('mouseout', onMouseout)
       .merge(node)
 
-    link = link.data(linksData, (d) => `${d.source.id}-${d.target.id}`)
-    link.exit().remove()
-    link = link.enter().append('path').attr('stroke-width', STROKE).merge(link)
-
-    text = text.data(nodesData, (d) => d.label)
-    text.exit().remove()
-    text = text
+    link = link
+      .data(linksData, (d) => `${d.source.id}-${d.target.id}`)
       .enter()
-      .append('text')
+      .append('path')
+      .attr('stroke-width', STROKE)
+      .merge(link)
+
+    text = text.data(nodesData, (d) => d.label).enter().append('text')
+    text = text
       .text((d) => shorten(d.label.replace(/_*/g, ''), MAX_LABEL_LENGTH))
       .attr('font-size', `${FONT_SIZE}px`)
       .attr('text-anchor', 'middle')

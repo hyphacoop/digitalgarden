@@ -1,5 +1,6 @@
 ---
 date_created: 2021-03-01
+status: 🌱
 ---
 
 Set of areas that guide our reveries?

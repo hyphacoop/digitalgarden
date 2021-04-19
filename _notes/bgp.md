@@ -1,6 +1,7 @@
 ---
 title: BGP
 date_created: 2021-03-15
+status: 🌲
 ---
 
 Border Gateway Protocol (BGP) is a standardized exterior gateway [[protocol]] designed to exchange routing and reachability information among autonomous systems (AS) on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.

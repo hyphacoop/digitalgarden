@@ -80,7 +80,8 @@ class BidirectionalLinksGenerator < Jekyll::Generator
         graph_nodes << {
           id: note_id_from_note(current_note),
           path: "#{site.baseurl}#{current_note.url}#{link_extension}",
-          label: current_note.data['title']
+          label: current_note.data['title'],
+          status: current_note.data['status']
         }
       end
 

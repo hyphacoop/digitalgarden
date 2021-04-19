@@ -112,6 +112,10 @@
   stroke: transparent;
 }
 
+.status {
+  pointer-events: none;
+}
+
 .inactive {
   opacity: 0.45;
   transition: opacity 0.15s ease-out;
