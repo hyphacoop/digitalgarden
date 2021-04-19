@@ -27,7 +27,11 @@ task check: :build do
     assume_extension: true,
     http_status_ignore: [403],
     typhoeus: {
-      headers: { "User-Agent": 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0' }
+      headers: {
+        "User-Agent": 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0',
+      },
+      "ssl_verifypeer": false,
+      "ssl_verifyhost": 0
     }
   }
   HTMLProofer.check_directory('./_site', options).run
