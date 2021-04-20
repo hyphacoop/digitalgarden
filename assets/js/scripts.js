@@ -402,7 +402,7 @@ if (noteExpander) {
 
 const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 const conditionsContainer = document.getElementById('gardenConditions')
-const openWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Toronto&units=metric&appid=afe544d6e6f442f817b2f43eafdca885'
+const openWeatherUrl = 'https://garden-weather-api.vercel.app/weather/toronto'
 
 if (conditionsContainer) {
   window.fetch(openWeatherUrl)
