@@ -87,12 +87,11 @@
 
 .nodes circle {
   cursor: pointer;
-  stroke: var(--foreground-text);
   fill: var(--background);
   transition: all 0.15s ease-out;
 
   &:hover {
-    fill: var(--foreground-text);
+    stroke: var(--foreground-text);
   }
 }
 
@@ -105,20 +104,17 @@
   }
 }
 
-.nodes [active],
-.text [active] {
+.nodes [active] {
   cursor: pointer;
+  stroke: var(--active-note);
+}
+
+.text [active] {
   fill: var(--active-note);
-  stroke: transparent;
 }
 
 .status {
   pointer-events: none;
-}
-
-.inactive {
-  opacity: 0.45;
-  transition: opacity 0.15s ease-out;
 }
 
 // Notes inline styles

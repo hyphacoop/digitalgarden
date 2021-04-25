@@ -148,11 +148,11 @@ const d3 = window.d3
 
 if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
-  const MAX_NODE_SIZE = 12
+  const MAX_NODE_SIZE = 16
   const STROKE = 1
   const FONT_SIZE = 12
   const TICKS = 200
-  const FONT_BASELINE = 35
+  const FONT_BASELINE = 42
   const MAX_LABEL_LENGTH = 50
 
   const nodesData = window.graphData.nodes
@@ -163,9 +163,9 @@ if (typeof window.graphData !== 'undefined') {
   const updateNodeSize = () => {
     nodesData.forEach((el) => {
       let weight =
-          3 *
+          8 *
           Math.sqrt(
-            linksData.filter((l) => l.source === el.id || l.target === el.id)
+            linksData.filter((l) => l.source.id === el.id || l.target.id === el.id)
               .length + 1
           )
       if (weight < MINIMAL_NODE_SIZE) {
@@ -280,7 +280,7 @@ if (typeof window.graphData !== 'undefined') {
 
   const ticked = () => {
     node.attr('cx', (d) => d.x).attr('cy', (d) => d.y)
-    status.attr('x', (d) => d.x - 24).attr('y', (d) => d.y)
+    status.attr('x', (d) => d.x - 2).attr('y', (d) => d.y)
     text
       .attr('x', (d) => d.x)
       .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]))
