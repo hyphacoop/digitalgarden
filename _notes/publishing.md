@@ -1,8 +1,32 @@
 ---
 title: Publishing
 date_created: 2021-03-28
+date_updated: 2021-04-25
 status: 🌲
 ---
+
+Publishing as a way of making a thing public, making it known and available. A sense of (re) distribution of the work or thing and knowledge associated with it.
+
+- Purely definitional:
+
+> Publishing is the activity of making information, literature, music, software and other content available to the public for sale or for free. Traditionally, the term refers to the distribution of printed works, such as books, newspapers, and magazines.
+
+<https://en.wikipedia.org/wiki/Publishing>
+
+and from Oxford English Dictionary:
+
+> publishing, n.
+> 1. The action of making something publicly known; official or public notification; promulgation, public announcement; = publication n. 1.
+> 2. The action or business of preparing and issuing books, newspapers, etc., for public sale or distribution; an instance of this; = publication n. 2. Cf. publish v. 3a.
+
+(pulling from publish:)
+> publish, v.
+> I. To make public.
+> 1. a. transitive. To announce in a formal or official manner; to proclaim; to promulgate (a law, decree, etc.); †to pronounce (a judicial sentence) (obsolete). 
+> b. transitive. To announce or read (banns) in church before an intended marriage; (U.S. regional, chiefly north-eastern) to announce publicly the name of (a person intending marriage).
+
+<https://www.oed.com/view/Entry/154077>
+<https://www.oed.com/view/Entry/154072>
 
 - Experiment around digital publishing from fellow [[Hypha|Hypha Co-op]] member-workers:
 
