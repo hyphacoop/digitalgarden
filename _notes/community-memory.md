@@ -18,6 +18,7 @@ support expansion of the project.
 
 ![Community Memory terminal](assets/images/cm2.jpeg)
 
-<https://archive.computerhistory.org/resources/access/text/finding-aids/102733953-Community-Memory/102733953-Community-Memory.pdf>
+<https://archive.computerhistory.org/resources/access/text/finding-aids/102733953-Community-Memory/102733953-Community-Memory.pdf>{:data-proofer-ignore='true'}
+
 
 <https://computerhistory.org/blog/community-memory-precedents-in-social-media-and-movements/>
