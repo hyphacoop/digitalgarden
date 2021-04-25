@@ -1,5 +1,6 @@
 ---
 title: Hypha
+status: 🌾
 ---
 
 <https://hypha.coop>  

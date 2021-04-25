@@ -1,5 +1,6 @@
 ---
 date: 2021-04-18
+status: 🌱
 ---
 
 > Togethernet is a collaborative archiving software in the form of a desktop web app that allows both [[peer-to-peer]] (P2P), traceless messaging as well as archived communications.

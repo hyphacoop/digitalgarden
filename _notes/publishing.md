@@ -1,6 +1,7 @@
 ---
 title: Publishing
 date_created: 2021-03-28
+status: 🌲
 ---
 
 - Experiment around digital publishing from fellow [[Hypha|Hypha Co-op]] member-workers:

@@ -1,5 +1,6 @@
 ---
 date: 2021-04-18
+status: 🌱
 ---
 
 ![Beaker browser 1.0 screenshot](assets/images/beaker-browser.png)

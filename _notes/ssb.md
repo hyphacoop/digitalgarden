@@ -1,5 +1,6 @@
 ---
 title: SSB
+status: 🌱
 ---
 
 ![Hermies](https://user-images.githubusercontent.com/227587/114308935-73597c80-9ab3-11eb-8830-eb8ecb250eb5.png){:.w-60}  

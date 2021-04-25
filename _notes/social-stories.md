@@ -1,5 +1,6 @@
 ---
 date: 2021-04-18
+status: 🌱
 ---
 **What is it that you hope to explore during your residency?**
 
@@ -13,6 +14,6 @@ We are exploring the protocols, languages, and material of the internet as a pla
 - <http://designforthe.net/workshops/ascii/>: A workshop Mindy Seu hosted as part of A-B-Z-TXT. Pulling together concrete poetry and typewriter art, to create imaginary internet dwellings
 - <http://contemporary-home-computing.org/turing-complete-user/>: Essay from Olia Lialina expanding on the concept of _General Purpose Users_
 - <https://www.foreignobjects.net/internet-as-a-city>
-- Community Memory
+- [[Community Memory]]
 - World in 24 Hours
 - <https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/>

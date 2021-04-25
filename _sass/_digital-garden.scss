@@ -132,12 +132,18 @@
 }
 
 .internal-link {
-  padding: 0 0.3em;
+  padding: 0.2em 0.5em;
   text-decoration: none;
   background: rgba(var(--internal-link-rgb), 0.25);
-  border-radius: 4px;
-  text-decoration: underline;
+  border: 1px solid rgba(var(--internal-link-rgb), 0.5);
+  border-radius: 9999px;
   white-space: nowrap;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    border-color: var(--internal-link-rgb);
+    box-shadow: 2px 2px 10px rgba( var(--foreground-text-rgb), 0.2 );
+  }
 }
 
 .invalid-link {
@@ -177,6 +183,12 @@
     border-radius: 6px;
     font-size: .875rem;
   }
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+
 }
 
 // Link previews

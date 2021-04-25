@@ -1,6 +1,7 @@
 ---
 title: Infrastructure
 date_created: 2021-04-11
+status: 🌱
 ---
 
 TBD (forever)
