@@ -15,5 +15,5 @@ We are exploring the protocols, languages, and material of the internet as a pla
 - <http://contemporary-home-computing.org/turing-complete-user/>: Essay from Olia Lialina expanding on the concept of _General Purpose Users_
 - <https://www.foreignobjects.net/internet-as-a-city>
 - [[Community Memory]]
-- World in 24 Hours
+- [[World in 24 Hours]]
 - <https://thecreativeindependent.com/people/laurel-schwulst-my-website-is-a-shifting-house-next-to-a-river-of-knowledge-what-could-yours-be/>
