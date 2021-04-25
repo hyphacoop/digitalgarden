@@ -5,12 +5,12 @@ front_matter_date = DateTime.now.strftime('%Y-%m-%d')
 EMPTY_FRONT_MATTER = <<~JEKYLL
   ---
   date: #{front_matter_date}
+  status: 🌱
   ---
-
 JEKYLL
 
 # Inject empty front matter in notes that don't have any
-Jekyll::Hooks.register :site, :after_init do |site|
+Jekyll::Hooks.register :site, :post_read do |site|
   Dir.glob("#{site.collections['notes'].relative_directory}/**/*.md").each do |filename|
     raw_note_content = File.read(filename)
     unless raw_note_content.start_with?('---')
