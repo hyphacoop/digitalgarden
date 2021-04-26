@@ -115,6 +115,11 @@
 
 .status {
   pointer-events: none;
+  @-moz-document url-prefix() {
+    text {
+      transform: translateX(2px);
+    }
+  }
 }
 
 // Notes inline styles
