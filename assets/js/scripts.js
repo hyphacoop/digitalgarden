@@ -306,7 +306,7 @@ if (typeof window.graphData !== 'undefined') {
       .text((d) => d.status)
       .attr('font-size', '18px')
       .attr('text-anchor', 'middle')
-      .attr('alignment-baseline', 'central')
+      .attr('dominant-baseline', 'central')
       .merge(status)
 
     node = node.data(nodesData, (d) => d.id).enter().append('circle')
