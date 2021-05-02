@@ -41,6 +41,10 @@
   font-family: "Work Sans Light", sans-serif;
 }
 
+.word-wrap {
+  word-break: break-all;
+}
+
 // Shadow helper
 
 .shadow-solid-accent { box-shadow: 2px 2px 10px rgba( var(--foreground-text-rgb), 0.2 ); }
