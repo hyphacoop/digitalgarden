@@ -5,7 +5,7 @@ layout: default
   <article id="note-container"  class="w-50 pa3 pr0 relative z-1">
     <div class="container bg-white min-vh-100-header-comp pa3 br4 flex flex-column justify-between">
       <header>
-        <div class="note-meta flex f7 lh-copy justify-between code items-center">
+        <div class="note-meta flex f7 lh-copy justify-between code items-center" data-status="{{ page.status }}">
           {% if page.date_created %}
             <time class="ml3 flex-auto" datetime="{{ page.date_created | date_to_xmlschema }}">{% if page.type != 'pages' %}
               Created <br> {{ page.date_created | date: "%B %-d, %Y" }}

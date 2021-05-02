@@ -125,11 +125,21 @@
 // Notes inline styles
 
 .note-meta:before {
-  content: '';
-  width: 20px;
-  height: 20px;
+  content: attr(data-status);
+  display: flex;
+  justify-content: center;
+  text-indent: -4px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
-  background: var(--active-note);
+  border: 1px solid var(--active-note);
+}
+
+@-moz-document url-prefix() {
+  .note-meta:before {
+    text-indent: 0;
+  }
 }
 
 .internal-link {
