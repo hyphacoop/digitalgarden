@@ -135,7 +135,7 @@ if (typeof window.graphDataIndex !== 'undefined') {
     if (counter === 4) {
       document.querySelector('.rand-notes').innerHTML = ''
     }
-  }, 150)
+  }, 50)
 
   setTimeout(() => {
     window.location = randomNode.path
