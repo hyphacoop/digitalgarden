@@ -5,10 +5,12 @@
   font-family: Anthony;
   src: url('../fonts/Anthony.woff2') format('woff2'),
        url('../fonts/Anthony.woff') format('woff');
+  font-display: swap;
 }
 
 @font-face {
   font-family: Work Sans Light;
   src: url('../fonts/WorkSans-Light.woff2') format('woff2'),
        url('../fonts/WorkSans-Light.woff') format('woff');
+  font-display: swap;
 }
