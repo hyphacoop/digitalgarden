@@ -144,6 +144,8 @@ if (typeof window.graphDataIndex !== 'undefined') {
 
 // Notes graph
 
+const d3 = window.d3
+
 if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
   const MAX_NODE_SIZE = 16
@@ -402,15 +404,15 @@ const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`
 const conditionsContainer = document.getElementById('gardenConditions')
 const openWeatherUrl = 'https://garden-weather-api.vercel.app/weather/toronto'
 
-async function fetchWeather() {
-  let response = await window.fetch(openWeatherUrl)
-  let weatherData = await response.json()
+async function fetchWeather () {
+  const response = await window.fetch(openWeatherUrl)
+  const weatherData = await response.json()
   conditionsContainer.innerHTML = `${capitalize(weatherData.weather[0].description)}, ${Math.round(weatherData.main.temp)}°C`
   conditionsContainer.classList.remove('dn')
 }
 
 if (conditionsContainer) {
   fetchWeather().catch(e => {
-    console.log('There has been a problem with getting the weather ' + e.message);
-  });
+    console.log('There has been a problem with getting the weather ' + e.message)
+  })
 }
