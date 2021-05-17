@@ -30,6 +30,6 @@ end
 # Performance-booster for watching directories on Windows
 gem 'wdm', '~> 0.1.1', platforms: %i[mingw x64_mingw mswin]
 
-gem 'html-proofer', '~> 3.18'
+gem 'html-proofer', '~> 3.19'
 
 gem 'rake', '~> 13.0'
