@@ -13,7 +13,7 @@ Date:
 ![Screen Shot 2021-04-11 at 10 25 41 AM](https://user-images.githubusercontent.com/227587/114308013-52435c80-9ab0-11eb-9a1d-fa4814a542a9.png)
 
 ## Abstract
-HyperText is a way to link and access information of various kinds as a web of nodes in which the user can browse at will. Potentially, HyperText provides a single user-interface to many large classes of stored information such as reports, notes, data-bases, computer documentation and on-line systems help. We propose the implementation of a simple scheme to incorporate several different servers of machine-stored information already available at CERN, including an analysis of the requirements for information access needs by experiments.
+HyperText is a way to link and access information of various kinds as a web of nodes in which the user can browse at will. Potentially, HyperText provides a single user-interface to many large classes of stored information such as reports, notes, data-bases, computer documentation and on-line systems help. We propose the implementation of a simple scheme to incorporate several different servers of machine-stored information already available at [[CERN]], including an analysis of the requirements for information access needs by experiments.
 
 ## Hypertext concepts
 The principles of hypertext, and their applicability to the CERN environment, are discussed more fully in, a glossary of technical terms is given in. Here we give a short presentation of hypertext.
