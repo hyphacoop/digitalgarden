@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="flex">
-  <article id="note-container"  class="w-50 pa3 pr0 relative z-1">
+  <article id="note-container" class="w-50 w-100-m pa3 pr0-l mt7-m relative z-1">
     <div class="container bg-white min-vh-100-header-comp pa3 br4 flex flex-column justify-between">
       <header>
         <div class="note-meta flex f7 lh-copy justify-between code items-center" data-status="{{ page.status }}">
@@ -57,7 +57,7 @@ layout: default
     <button id="note-expand" class="absolute top-1 pointer nr4 mt3 right-0 bg-background button-reset bn foreground-text ">→</button>
   </article>
 
-  <div class="fixed top-0 right-0 w-50 vh-100">
+  <div class="fixed top-0 right-0 w-50 vh-100 w-100-m vh-50-m">
     {% include notes_graph.html %}
   </div>
 </div>

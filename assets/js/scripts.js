@@ -228,7 +228,7 @@ if (typeof window.graphData !== 'undefined') {
   const graphWrapper = document.getElementById('graph-wrapper')
   const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   element.setAttribute('width', graphWrapper.getBoundingClientRect().width)
-  element.setAttribute('height', window.innerHeight)
+  element.setAttribute('height', graphWrapper.getBoundingClientRect().height)
   element.classList.add('grab', 'grabbing')
   graphWrapper.appendChild(element)
 
