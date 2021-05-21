@@ -90,11 +90,11 @@ const showTooltip = (event) => {
 }
 
 const setupListeners = (linkElement) => {
-  linkElement.addEventListener('mouseleave', _event => {
+  linkElement.addEventListener('mouseleave', () => {
     hideTooltip()
   })
 
-  tooltipWrapper.addEventListener('mouseleave', _event => {
+  tooltipWrapper.addEventListener('mouseleave', () => {
     hideTooltip()
   })
 
@@ -104,7 +104,7 @@ const setupListeners = (linkElement) => {
     showTooltip(event)
   })
 
-  tooltipWrapper.addEventListener('mouseenter', event => {
+  tooltipWrapper.addEventListener('mouseenter', () => {
     clearTimeout(opacityTimeout)
     clearTimeout(contentTimeout)
   })
@@ -194,7 +194,7 @@ if (typeof window.graphData !== 'undefined') {
       if (nodeD.id !== destinationID && !relatedNodesSet.has(nodeD.id)) {
         return 'inactive'
       }
-      return ''
+      return 'active'
     })
 
     link.attr('class', (linkD) => {
@@ -203,18 +203,11 @@ if (typeof window.graphData !== 'undefined') {
       }
       return 'active'
     })
-
-    link.attr('stroke-width', (linkD) => {
-      if (linkD.source.id === destinationID || linkD.target.id === destinationID) {
-        return STROKE * 1
-      }
-      return STROKE
-    })
     text.attr('class', (textD) => {
       if (textD.id !== destinationID && !relatedNodesSet.has(textD.id)) {
         return 'inactive'
       }
-      return ''
+      return 'active'
     })
   }
 
