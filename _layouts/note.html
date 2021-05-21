@@ -31,14 +31,14 @@ layout: default
         </div>
       </div>
 
-      <aside class="bt b--background bw1 nl3 nr3 ph3 mt5">
+      <aside class="bt b--background bw1 nl3 nr3 ph3 mt4">
         <h2 class="normal f1 f2-m mv4 work-sans-light lh-solid">Notes mentioning this note</h2>
         {% if page.backlinks.size > 0 %}
         <div class="flex flex-wrap">
         {% for backlink in page.backlinks %}
           <div class="w-50 flex">
             <div class="shadow-solid-accent mb2 mr2 br4 pa3 flex flex-column">
-              <h3 class="mt0 f5 mb2"><a class="internal-link" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a></h3>
+              <h3 class="mt0 normal f5 mb2"><a class="internal-link" href="{{ backlink.url | relative_url }}{%- if site.use_html_extension -%}.html{%- endif -%}">{{ backlink.title }}</a></h3>
               <div class="f7 lh-copy mb3 flex-auto">{{ backlink.excerpt | strip_html | truncatewords: 20 | remove: '[[' | remove: ']]' }}</div>
               <div class="f7 light-silver">{{ backlink.url }}</div>
             </div>
