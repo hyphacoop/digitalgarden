@@ -90,8 +90,10 @@
   fill: var(--background);
   transition: all 0.15s ease-out;
 
-  &:hover {
+  &.active {
     stroke: var(--foreground-text);
+    stroke-dasharray: 3;
+    animation: dash 80s linear;
   }
 }
 
@@ -107,6 +109,10 @@
 .nodes [active] {
   cursor: pointer;
   stroke: var(--active-note);
+
+  &.active {
+    stroke: var(--active-note);
+  }
 }
 
 .text [active] {
