@@ -95,6 +95,10 @@
     stroke-dasharray: 3;
     animation: dash 80s linear;
   }
+
+  &[long-form] {
+    fill: rgba(var(--active-note-rgb), 0.75);
+  }
 }
 
 .text text {
@@ -114,6 +118,7 @@
     stroke: var(--active-note);
   }
 }
+
 
 .text [active] {
   fill: var(--active-note);
@@ -212,6 +217,28 @@
   h1, h2, h3,
   h4, h5, h6 {
     line-height: 1.25;
+  }
+
+  .footnotes {
+    font-size: .875rem;
+  }
+
+  [role="doc-endnote"]:target {
+    font-weight: bold;
+    background: rgba(var(--internal-link-rgb), 0.25);
+  }
+
+  [role="doc-noteref"]{
+    &:target {
+      pointer-events: none;
+      margin-top: -200px; 
+      padding-top: 200px; 
+      display: inline-block;
+      font-weight: bold;
+    }
+    a {
+      pointer-events: auto;
+    }
   }
 }
 
