@@ -53,7 +53,7 @@ const showTooltip = (event) => {
   const elemProps = elem.getClientRects()[elem.getClientRects().length - 1]
   const top = window.pageYOffset || document.documentElement.scrollTop
 
-  if (event.target.host === window.location.host) {
+  if (event.target.host === window.location.host && event.target.getAttribute('href').charAt(0) !== '#') {
     window.fetch(event.target.href)
       .then(response => response.text())
       .then(data => {
@@ -331,6 +331,7 @@ if (typeof window.graphData !== 'undefined') {
       .merge(text)
 
     node.attr('active', (d) => isCurrentPath(d.path) ? true : null)
+    node.attr('long-form', (d) => d.type === 'long-form' ? true : null)
     text.attr('active', (d) => isCurrentPath(d.path) ? true : null)
 
     simulation.nodes(nodesData)
