@@ -144,7 +144,8 @@
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid var(--active-note);
+  border: 1px solid rgba(var(--active-note-rgb), 0.5);
+  background: rgba(var(--active-note-rgb), 0.1);
 }
 
 @-moz-document url-prefix() {
