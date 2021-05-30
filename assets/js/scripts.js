@@ -148,7 +148,7 @@ const d3 = window.d3
 
 if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
-  const MAX_NODE_SIZE = 24
+  const MAX_NODE_SIZE = 20
   const STROKE = 1
   const FONT_SIZE = 12
   const TICKS = 200
