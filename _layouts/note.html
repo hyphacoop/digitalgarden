@@ -23,10 +23,13 @@ layout: default
           </time>
         </div>
         <h1 class="note-title normal relative work-sans-light f-5 f1-m mb4 lh-solid">{{ page.title }}</h1>
+        {% if page.subtitle %}
+          <h2 class="note-title normal relative work-sans-light f2 mb4 lh-solid">{{ page.subtitle }}</h2>
+        {% endif %}
       </header>
 
       <div id="notes-entry-container" class="flex-auto">
-        <div class="note-contents f5 lh-copy">
+        <div class="note-contents f5 lh-copy {% if page.type == "long-form" %} serif{% endif %}">
           {{ content }}
         </div>
       </div>
