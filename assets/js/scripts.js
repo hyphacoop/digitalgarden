@@ -148,11 +148,10 @@ const d3 = window.d3
 
 if (typeof window.graphData !== 'undefined') {
   const MINIMAL_NODE_SIZE = 10
-  const MAX_NODE_SIZE = 16
+  const MAX_NODE_SIZE = 24
   const STROKE = 1
   const FONT_SIZE = 12
   const TICKS = 200
-  const FONT_BASELINE = 42
   const MAX_LABEL_LENGTH = 50
 
   const nodesData = window.graphData.nodes
@@ -276,7 +275,7 @@ if (typeof window.graphData !== 'undefined') {
     status.attr('x', (d) => d.x - 2).attr('y', (d) => d.y)
     text
       .attr('x', (d) => d.x)
-      .attr('y', (d) => d.y - (FONT_BASELINE - nodeSize[d.id]))
+      .attr('y', (d) => d.y - nodeSize[d.id] - FONT_SIZE * 0.75)
     link
       .attr('d', (d) => {
         const dx = d.target.x - d.source.x
