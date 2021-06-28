@@ -8,9 +8,9 @@ layout: default
   <div class="lh-copy f5 z-1 mb6 relative">
     {{ content }}
   </div>
-  {% if page.url == "/colophon/" %}
-    <div class="fixed top-0 right-0 w-100 vh-100 o-20">
+  {%- if page.url == "/colophon/" or page.url == "/graph/" -%}
+    <div class="fixed top-0 right-0 w-100 vh-100 {% if page.url == '/colophon/' %}o-20{% endif %}">
       {% include notes_graph.html %}
     </div>
-  {% endif %}
+  {%- endif -%}
 </article>
